@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono, Noto_Sans_Arabic } from 'next/font/google'
 import { LanguageProvider } from '@/lib/i18n'
@@ -43,6 +44,14 @@ export default function RootLayout({
       dir="ltr"
       className={`${inter.variable} ${jetbrainsMono.variable} ${notoArabic.variable} bg-background`}
     >
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4024799213815700"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="font-sans antialiased">
         <LanguageProvider>
           <FavoritesProvider>{children}</FavoritesProvider>
