@@ -1,6 +1,6 @@
 'use client'
 
-import { Shield, X } from 'lucide-react'
+import { Shield, User, X } from 'lucide-react'
 import { navItems, type ViewId } from '@/lib/navigation'
 import { useLanguage } from '@/lib/i18n'
 import { commandsByCategory, type CategoryId } from '@/lib/commands'
@@ -95,7 +95,9 @@ export function AppSidebar({
                     <Icon
                       className={cn(
                         'h-4 w-4 shrink-0',
-                        active ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground',
+                        active
+                          ? 'text-primary'
+                          : 'text-muted-foreground group-hover:text-foreground',
                       )}
                     />
                     <span className="flex-1 truncate text-start">{t(item.key)}</span>
@@ -117,18 +119,44 @@ export function AppSidebar({
             </div>
           )
         })}
+
+        {/* Developer page link */}
+        <div className="flex flex-col gap-1">
+          <p className="px-3 pb-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+            {t('about')}
+          </p>
+          <button
+            type="button"
+            onClick={() => onNavigate('developer')}
+            aria-current={activeView === 'developer' ? 'page' : undefined}
+            className={cn(
+              'group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+              activeView === 'developer'
+                ? 'bg-sidebar-accent text-foreground ring-1 ring-primary/40'
+                : 'text-muted-foreground hover:bg-sidebar-accent/60 hover:text-foreground',
+            )}
+          >
+            <User
+              className={cn(
+                'h-4 w-4 shrink-0',
+                activeView === 'developer'
+                  ? 'text-primary'
+                  : 'text-muted-foreground group-hover:text-foreground',
+              )}
+            />
+            <span className="flex-1 truncate text-start">{t('developer')}</span>
+          </button>
+        </div>
       </div>
     </nav>
   )
 
   return (
     <>
-      {/* Desktop sidebar */}
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 border-e border-sidebar-border bg-sidebar lg:block">
         {nav}
       </aside>
 
-      {/* Mobile drawer */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div

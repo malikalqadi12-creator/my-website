@@ -14,6 +14,7 @@ import { CommandGrid } from '@/components/command-grid'
 import { DisclaimerBanner } from '@/components/disclaimer-banner'
 import { SecurityToolsView } from '@/components/security-tools-view'
 import { ResourcesView } from '@/components/resources-view'
+import DeveloperPage from '@/app/developer/page'
 
 const categoryIds: CategoryId[] = [
   'network',
@@ -88,6 +89,7 @@ export default function Page() {
     if (activeView === 'home') return <Hero onNavigate={navigate} />
     if (activeView === 'securityTools') return <SecurityToolsView />
     if (activeView === 'resources') return <ResourcesView />
+    if (activeView === 'developer') return <DeveloperPage />
 
     if (activeView === 'favorites') {
       return (

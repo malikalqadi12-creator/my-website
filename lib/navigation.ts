@@ -20,7 +20,7 @@ export type ViewId =
   | 'securityTools'
   | 'resources'
   | 'favorites'
-
+  | 'developer'
 export interface NavItem {
   id: ViewId
   /** translation key in the i18n dictionary */
@@ -36,6 +36,7 @@ export interface NavItem {
     | 'securityTools'
     | 'resources'
     | 'favorites'
+    |'developer'
   icon: LucideIcon
   /** group heading key, used to divide the sidebar */
   group: 'main' | 'commands' | 'reference'

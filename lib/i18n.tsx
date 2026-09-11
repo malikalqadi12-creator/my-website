@@ -125,6 +125,13 @@ const dict: Dict = {
     en: 'Essential Linux and Kali command-line basics for navigating the filesystem and inspecting the system.',
     ar: 'أساسيات سطر أوامر Linux و Kali الضرورية للتنقّل في نظام الملفات وفحص النظام.',
   },
+    // Developer page
+  developer: { en: 'Developer', ar: 'المطوّر' },
+  about: { en: 'About', ar: 'حول' },
+  developer_education: { en: 'Education', ar: 'التعليم' },
+  developer_skills: { en: 'Skills', ar: 'المهارات' },
+  developer_experience: { en: 'Experience & Projects', ar: 'الخبرات والمشاريع' },
+  developer_contact: { en: 'Get in Touch', ar: 'تواصل معي' },
 }
 
 type LanguageContextValue = {
